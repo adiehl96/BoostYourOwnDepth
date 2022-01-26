@@ -186,6 +186,7 @@ class BoostDataset:
         self.lr_depth_dir = os.path.join(root_dir,'low-res')
         self.hr_depth_dir = os.path.join(root_dir,'high-res')
         self.files = sorted(os.listdir(self.lr_depth_dir))
+        self.files = list(filter(lambda x: ".jpg" in x or ".png" in x or ".jpeg" in x, self.files))
 
     def __len__(self):
         return len(self.files)
